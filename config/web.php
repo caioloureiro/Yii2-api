@@ -45,10 +45,10 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'rules' => [
 				[
 					'class' => 'yii\rest\UrlRule', 
 					'controller' => 'api/produto',
@@ -57,8 +57,16 @@ $config = [
 						'GET inativos' => 'inativos',
 					],
 				],
+				[
+					'class' => 'yii\rest\UrlRule', 
+					'controller' => 'api/categoria',
+					'extraPatterns' => [
+						'POST {id}/ativar' => 'ativar',
+						'GET inativos' => 'inativos',
+					],
+				],
 			],
-        ],
+		],
 		'response' => [
 			'format' => yii\web\Response::FORMAT_JSON,
 			'charset' => 'UTF-8',

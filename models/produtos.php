@@ -1,7 +1,6 @@
 <?php
 
 namespace app\models;
-
 use yii\db\ActiveRecord;
 
 class Produtos extends ActiveRecord

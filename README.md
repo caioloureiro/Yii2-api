@@ -28,3 +28,25 @@ curl -X DELETE "http://localhost/Yii2-api/web/api/produtos/1"
 Reativar produto:
 
 curl -X POST "http://localhost/Yii2-api/web/api/produtos/1/ativar"
+
+
+Categorias:
+
+GET    /api/categorias          - Lista todas categorias ativas
+GET    /api/categorias/1        - Mostra detalhes da categoria com ID 1
+POST   /api/categorias          - Cria nova categoria
+PUT    /api/categorias/1        - Atualiza categoria completa
+PATCH  /api/categorias/1        - Atualização parcial da categoria
+DELETE /api/categorias/1        - Soft delete (marca como inativa)
+GET    /api/categorias/inativos - Lista categorias inativas
+POST   /api/categorias/1/ativar - Reativa uma categoria
+
+curl -X POST "http://localhost/Yii2-api/web/api/categorias" \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Eletrônicos","ativo":"1"}'
+
+curl -X GET "http://localhost/Yii2-api/web/api/categorias"
+
+curl -X DELETE "http://localhost/Yii2-api/web/api/categorias/1"
+
+curl -X GET "http://localhost/Yii2-api/web/api/categorias/1?expand=produtos"
